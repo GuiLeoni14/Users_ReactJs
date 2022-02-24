@@ -1,25 +1,25 @@
 import { AuthContext } from '../../context/AuthContext/context';
 import { useContext, useEffect, useState } from 'react';
 import { handleLogin } from '../../context/AuthContext/actions';
+import { handleRegister } from '../../context/AuthContext/actions';
+import Form from '../../components/Form';
 import axios from 'axios';
 export default function Login() {
     const [person, setPerson] = useState([]);
     const {
-        stateAuth: { authenticated, loading },
+        stateAuth: { authenticated, loading, loginAndRegisterErr },
         setStateAuth,
     } = useContext(AuthContext);
     useEffect(() => {
         async function getApi() {
             const response = await axios.get(`${import.meta.env.VITE_REACT_APP_URL_API}/person`);
             const { data } = response;
-            console.log(data);
             setPerson(data);
         }
         if (authenticated) {
             getApi();
         }
     }, [authenticated]);
-    console.log(loading);
     if (loading) {
         return (
             <div>
@@ -28,12 +28,7 @@ export default function Login() {
         );
     }
     if (!authenticated) {
-        return (
-            <div>
-                <button onClick={() => handleLogin(setStateAuth)}>AUTENTICAR</button>
-                <h1>Não autenticado</h1>
-            </div>
-        );
+        return <Form />;
     }
     return (
         <div>

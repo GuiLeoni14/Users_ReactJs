@@ -1,27 +1,44 @@
 import axios from 'axios';
 import * as types from './types';
 import history from './history';
-export const handleLogin = async (dispatch) => {
-    const values = {
-        password: '123',
-        email: 'gui@gmail.com',
-    };
+import { useNavigate } from 'react-router-dom';
+export const handleLogin = async (dispatch, values) => {
     try {
         const response = await axios.post(`${import.meta.env.VITE_REACT_APP_URL_API}/auth/login`, values);
         const { data } = response;
-        console.log(data);
         localStorage.setItem('token', JSON.stringify(data.token));
-        console.log(data.token);
         axios.defaults.headers.common['Authorization'] = `Bearer ${data.token}`;
-        dispatch({ type: types.AUTHENTICATE_USER });
-        history.push('/home');
+        dispatch({ type: types.AUTHENTICATE_USER, payload: true });
+        history.push('/');
     } catch (err) {
         const {
             response: {
                 data: { error },
+                status,
             },
         } = err;
-        console.log(error);
+        if (status === 404 || status === 422) {
+            return dispatch({ type: types.EMAIL_OR_PASSWORD_ERROR, payload: error });
+        }
+    }
+};
+
+export const handleRegister = async (dispatch, values, navigateTo) => {
+    try {
+        const response = await axios.post(`${import.meta.env.VITE_REACT_APP_URL_API}/auth/register`, values);
+        const { data } = response;
+        navigateTo();
+        dispatch({ type: types.CREATED_USER_SUCCESS, payload: data.message });
+    } catch (err) {
+        const {
+            response: {
+                data: { error },
+                status,
+            },
+        } = err;
+        if (status === 404 || status === 422) {
+            return dispatch({ type: types.EMAIL_OR_PASSWORD_ERROR, payload: error });
+        }
     }
 };
 
@@ -35,7 +52,12 @@ export const checkToken = (dispatch) => {
     const token = localStorage.getItem('token');
     if (token) {
         axios.defaults.headers.common['Authorization'] = `Bearer ${JSON.parse(token)}`;
-        dispatch({ type: types.FOUND_TOKEN });
+        dispatch({ type: types.AUTHENTICATE_USER, payload: true });
     }
-    return dispatch({ type: types.LOADING_SUCCESS, payload: false });
+    dispatch({ type: types.LOADING_SUCCESS, payload: false });
+};
+
+export const resetMessage = (dispatch) => {
+    dispatch({ type: types.EMAIL_OR_PASSWORD_ERROR, payload: '' });
+    dispatch({ type: types.CREATED_USER_SUCCESS, payload: '' });
 };

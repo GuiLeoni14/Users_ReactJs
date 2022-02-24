@@ -14,7 +14,9 @@ export default function MyRoutes() {
         stateAuth: { authenticated, loading },
         setStateAuth,
     } = useContext(AuthContext);
-    console.log(authenticated);
+    if (authenticated) {
+        console.log('estou autenticado');
+    }
     useEffect(() => {
         checkToken(setStateAuth);
     }, [setStateAuth]);

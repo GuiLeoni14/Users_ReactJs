@@ -1,0 +1,84 @@
+@import '../../layout/GlobalVariables/styles.scss';
+.main-form{
+    width: 100%;
+    max-width: 80rem;
+    height: 50rem;
+    position: relative;
+    .singin, .login{
+        position: absolute;
+        top: 0rem;
+        right: 0rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 100%;
+    }
+    .singin{
+        pointer-events: none;
+        z-index: 0;
+    }
+    .login{
+        pointer-events: all;
+        z-index: 1;
+    }
+    .primary{
+        width: 60%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: $blue-500;
+        padding: 2rem 0rem;
+        box-shadow: 0rem 0rem 1rem #000;
+        h2{
+            font-size: 3rem;
+            font-weight: bold;
+            text-transform: capitalize;
+            margin-bottom: 1rem;
+            color: $green-600;
+        }
+        span{
+            margin-bottom: 2.4rem;
+            font-size: 2rem;
+        }
+        h4{
+            font-size: 1.2rem;
+            a{
+                text-decoration: underline;
+            }
+        }
+    }
+    .second{
+        width: 40%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0rem 1rem;
+        background-color: $green-600;
+        h2{
+            font-size: 3rem;
+        }
+        p{
+            font-size: 1.2rem;
+            line-height: 1.5rem;
+            margin: 2rem 0rem;
+        }
+        button{
+        }
+    }
+}
+
+.open-singin-js{
+    .singin{
+        pointer-events: all;
+        z-index: 1;
+    }
+    .login{
+        pointer-events: none;
+        z-index: 0;
+    }
+}

@@ -1,13 +1,25 @@
 import { Navigate } from 'react-router-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext/context';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import P from 'prop-types';
+import { checkToken } from '../context/AuthContext/actions';
 export default function PrivateRouter({ children, redirectTo }) {
     const {
         stateAuth: { authenticated, loading },
         setStateAuth,
     } = useContext(AuthContext);
+    console.log(authenticated);
+    if (authenticated) {
+        console.log('estou autenticado');
+    }
+    useEffect(() => {
+        checkToken(setStateAuth);
+    }, [setStateAuth]);
+
+    if (loading) {
+        return <h1>Loading</h1>;
+    }
     return authenticated ? children : <Navigate to={redirectTo} />;
 }
 PrivateRouter.propTypes = {
