@@ -10,16 +10,6 @@ import Home from '../pages/Home';
 import Login from '../pages/Login';
 import PrivateRouter from './PrivateRouter';
 export default function MyRoutes() {
-    const {
-        stateAuth: { authenticated, loading },
-        setStateAuth,
-    } = useContext(AuthContext);
-    if (authenticated) {
-        console.log('estou autenticado');
-    }
-    useEffect(() => {
-        checkToken(setStateAuth);
-    }, [setStateAuth]);
     return (
         <Routes>
             <Route

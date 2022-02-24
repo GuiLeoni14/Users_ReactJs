@@ -10,9 +10,6 @@ export default function PrivateRouter({ children, redirectTo }) {
         setStateAuth,
     } = useContext(AuthContext);
     console.log(authenticated);
-    if (authenticated) {
-        console.log('estou autenticado');
-    }
     useEffect(() => {
         checkToken(setStateAuth);
     }, [setStateAuth]);
