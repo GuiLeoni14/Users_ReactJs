@@ -5,7 +5,7 @@ import axios from 'axios';
 export default function Login() {
     const [person, setPerson] = useState([]);
     const {
-        stateAuth: { authenticated },
+        stateAuth: { authenticated, loading },
         setStateAuth,
     } = useContext(AuthContext);
     useEffect(() => {
@@ -19,6 +19,14 @@ export default function Login() {
             getApi();
         }
     }, [authenticated]);
+    console.log(loading);
+    if (loading) {
+        return (
+            <div>
+                <h1>Carregando</h1>
+            </div>
+        );
+    }
     if (!authenticated) {
         return (
             <div>
