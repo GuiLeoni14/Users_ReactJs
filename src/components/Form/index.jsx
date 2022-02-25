@@ -9,45 +9,45 @@ import { AuthContext } from '../../context/AuthContext/context';
 export default function Form() {
     const { setStateAuth } = useContext(AuthContext);
     const mainFormRef = useRef(null);
-    const openContentSingIn = () => {
-        mainFormRef.current.classList.toggle('open-singin-js');
+    const openContentSignIn = () => {
+        mainFormRef.current.classList.toggle('open-signin-js');
         resetMessage(setStateAuth);
     };
     return (
         <div className="main-form" ref={mainFormRef}>
             <div className="login" data-aos="fade-up">
                 <div className="primary">
-                    <h2>Sing in Sistem</h2>
-                    <span>use your email for acccount</span>
+                    <h2>Sign In System</h2>
+                    <span>use your email for account</span>
                     <FormLogin />
                     <h4>
-                        <a onClick={openContentSingIn}>your not account? create account</a>
+                        <a onClick={openContentSignIn}>you not have account? create account</a>
                     </h4>
                 </div>
                 <div className="second">
-                    <h2>Hello Friend</h2>
+                    <h2>hello friends</h2>
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod qui, doloremque repellendus eaque
                         aut doloribus repudiandae aperiam quidem ratione modi.
                     </p>
-                    <DefaultButton text="Sing in" customClass="sing" handleClick={openContentSingIn} />
+                    <DefaultButton text="Sign In" customClass="sing" handleClick={openContentSignIn} />
                 </div>
             </div>
-            <div className="singin" data-aos="fade-up">
+            <div className="signin" data-aos="fade-up">
                 <div className="second">
                     <h2>Hello Friend</h2>
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod qui, doloremque repellendus eaque
                         aut doloribus repudiandae aperiam quidem ratione modi.
                     </p>
-                    <DefaultButton text="Login" customClass="sing" handleClick={openContentSingIn} />
+                    <DefaultButton text="Login" customClass="sing" handleClick={openContentSignIn} />
                 </div>
                 <div className="primary">
-                    <h2>Sing in Sistem</h2>
-                    <span>use your email for acccount</span>
+                    <h2>Sign InSystem</h2>
+                    <span>use your email for account</span>
                     <FormCreateAccount />
                     <h4>
-                        <a onClick={openContentSingIn}>your account? login</a>
+                        <a onClick={openContentSignIn}>you have account? login</a>
                     </h4>
                 </div>
             </div>
