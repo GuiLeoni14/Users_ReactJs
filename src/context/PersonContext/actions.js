@@ -5,8 +5,14 @@ export const loadPerson = async (dispatch) => {
     try {
         const { data } = await axios.get(`${import.meta.env.VITE_REACT_APP_URL_API}/person`);
         dispatch({ type: types.LOAD_PERSON, payload: data });
-    } catch {
-        dispatch({ type: types.ERROR_PERSON });
+    } catch (err) {
+        const {
+            response: {
+                data: { error },
+                status,
+            },
+        } = err;
+        dispatch({ type: types.ERROR_PERSON, error: error });
     }
     dispatch({ type: types.LOADING_PERSON, payload: false });
 };
@@ -30,29 +36,38 @@ export const addPerson = async (dispatch, values) => {
     dispatch({ type: types.LOADING_PERSON, payload: false });
 };
 
-export const deletePerson = (dispatch, id) => {
+export const deletePerson = async (dispatch, id) => {
+    dispatch({ type: types.LOADING_PERSON, payload: true });
     try {
-        const beforeStorage = JSON.parse(localStorage.getItem('persons'));
-        const afterPerson = beforeStorage.filter((dev) => dev.id != id);
-        localStorage.setItem('persons', JSON.stringify(afterPerson));
-        loadPerson(dispatch);
-        dispatch({ type: types.DELETE_PERSON, payload: afterPerson });
-    } catch {
-        dispatch({ type: types.ERROR_PERSON });
+        await axios.delete(`${import.meta.env.VITE_REACT_APP_URL_API}/person/${id}`);
+        await loadPerson(dispatch);
+    } catch (err) {
+        const {
+            response: {
+                data: { error },
+                status,
+            },
+        } = err;
+        dispatch({ type: types.ERROR_PERSON, payload: error });
     }
+    dispatch({ type: types.LOADING_PERSON, payload: false });
 };
 
-export const editPerson = (dispatch, values) => {
+export const editPerson = async (dispatch, values) => {
+    dispatch({ type: types.LOADING_PERSON, payload: true });
     try {
-        const beforeStorage = JSON.parse(localStorage.getItem('persons'));
-        const newStorage = beforeStorage.filter((item) => item.id != values.id);
-        localStorage.setItem('persons', JSON.stringify([...newStorage, values]));
-        loadPerson(dispatch);
-        const afterPerson = JSON.parse(localStorage.getItem('persons'));
-        dispatch({ type: types.DELETE_PERSON, payload: afterPerson });
-    } catch {
-        dispatch({ type: types.ERROR_PERSON });
+        await axios.patch(`${import.meta.env.VITE_REACT_APP_URL_API}/person/${values.id}`, values);
+        await loadPerson(dispatch);
+    } catch (err) {
+        const {
+            response: {
+                data: { error },
+                status,
+            },
+        } = err;
+        dispatch({ type: types.ERROR_PERSON, payload: error });
     }
+    dispatch({ type: types.LOADING_PERSON, payload: false });
 };
 export const getStatusForGitHub = async (userName) => {
     return fetch(`https://api.github.com/users/${userName}`)

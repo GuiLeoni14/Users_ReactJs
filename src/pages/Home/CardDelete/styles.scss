@@ -1,5 +1,8 @@
+@import '../../../layout/GlobalVariables/styles.scss';
 .card_delete{
-    background-color: red;
+    width: 100%;
+    max-width: 30rem;
+    background-color: $blue-500;
     padding: 1rem;
     border-radius: 0.8rem;
     display: flex;

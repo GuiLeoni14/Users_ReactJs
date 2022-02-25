@@ -17,6 +17,11 @@
         line-height: 3.5rem;
         padding: 0rem 4rem;
     }
+    &-edit{
+        background-color: #d3c22a;
+        line-height: 3.5rem;
+        padding: 0rem 4rem;
+    }
     &-sing{
         background-color: #fff;
         color: $green-600;
@@ -24,10 +29,17 @@
         padding: 0rem 4rem;
     }
     &-delete{
-        background-color: #fff;
-        color: $red;
+        background-color: #a01717;
         line-height: 3.5rem;
         padding: 0rem 4rem;
+    }
+    &-add{
+        font-size: 2rem;
+        background-color: #fff;
+        color: $green-600;
+        line-height: 4rem;
+        padding: 0rem 2rem;
+        border-radius: 0.2rem;
     }
     &:hover, &:focus{
         opacity: 0.5;

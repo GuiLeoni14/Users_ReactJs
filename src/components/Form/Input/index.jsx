@@ -3,18 +3,35 @@ import './styles.scss';
 export default function Input({ type, placeholder, value, name, textLabel, handleChange, icon }) {
     return (
         <>
-            <label htmlFor={name} className="label">
-                <input
-                    type={type}
-                    placeholder={placeholder}
-                    value={value}
-                    name={name}
-                    id={name}
-                    onChange={handleChange}
-                    required
-                />
-                {icon}
-            </label>
+            {type == 'search' ? (
+                <div className="input_search">
+                    <input
+                        type={type}
+                        placeholder={placeholder}
+                        value={value}
+                        name={name}
+                        id={name}
+                        onChange={handleChange}
+                        required
+                    />
+                    {icon}
+                </div>
+            ) : (
+                <label htmlFor={name} className="label">
+                    {textLabel}
+                    <input
+                        type={type}
+                        placeholder={placeholder}
+                        value={value}
+                        name={name}
+                        autoComplete="off"
+                        id={name}
+                        onChange={handleChange}
+                        required
+                    />
+                    {icon}
+                </label>
+            )}
         </>
     );
 }

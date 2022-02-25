@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^0.1.6",
     "@radix-ui/react-hover-card": "^0.1.4",
     "aos": "^2.3.4",
     "axios": "^0.26.0",

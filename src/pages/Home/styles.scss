@@ -1,12 +1,46 @@
 .s_home{
+    padding-top: 10rem;
     min-height: 100vh;
     .container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
         .main_home{
             width: 100%;
-            .card_person{
-                &:not(:first-child){
-                    margin-top: 4rem;
+            .top_content{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .btn{
+                    margin-left: 2rem;
                 }
+                .input_search{
+                    max-width: 80%;
+                }
+            }
+            .user{
+                background-color: green;
+                box-shadow: 0rem 0rem 1rem #000;
+                padding: 1rem;
+                border-radius: 50%;
+                position: absolute;
+                top: 10rem;
+                right: 0rem;
+                z-index: 2;
+                cursor: pointer;
+                    svg{
+                        width: 4rem;
+                        height: 4rem;
+                    }
+                }
+            .persons{
+                margin-top: 4rem;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                gap: 2rem;
             }
         }
     }

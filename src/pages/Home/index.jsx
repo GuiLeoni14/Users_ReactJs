@@ -8,6 +8,11 @@ import './styles.scss';
 import CardPerson from './CardPerson';
 import Loading from '../../components/Loading';
 import CardHover from '../../components/CardHover';
+import { FaUser } from 'react-icons/fa';
+import Input from '../../components/Form/Input';
+import CardUser from './CardUser';
+import { DefaultButton } from '../../components/Buttons/DefaultButton';
+import MyDialog from './Dialog';
 export default function Home() {
     const {
         stateAuth: { user },
@@ -19,33 +24,41 @@ export default function Home() {
     useEffect(() => {
         loadPerson(personDispatch);
     }, [personDispatch]);
-    console.log(persons);
-    console.log(error);
-    useEffect(() => {
-        addPerson(personDispatch, {
-            name: 'gui',
-            github: 'GuiLeoni14',
-        });
-    }, []);
     return (
         <div className="s_home">
             <Container>
                 {loading && <Loading />}
                 <div className="main_home">
-                    {persons.length > 0 &&
-                        persons.map((person) => (
-                            <CardPerson
-                                key={person._id}
-                                name={person.name}
-                                profession={person.profession}
-                                linkedin={person.linkedin}
-                                github={person.github}
-                                email={person.email}
-                                description={person.description}
-                                avatar={person.avatar}
+                    <div className="user">
+                        <CardHover icon={<FaUser />}>
+                            <CardUser user={user} />
+                        </CardHover>
+                    </div>
+                    <div className="top_content">
+                        <Input type="search" placeholder="Pesquisar por pessoas" />
+                        <MyDialog>
+                            <Form
+                                TypeButton={<DefaultButton customClass="add" text="Adicionar Registro" type="submit" />}
                             />
-                        ))}
-                    <Form />
+                        </MyDialog>
+                    </div>
+                    <div className="persons">
+                        {persons.length > 0 &&
+                            persons.map((person) => (
+                                <CardPerson
+                                    key={person._id}
+                                    id={person._id}
+                                    name={person.name}
+                                    profession={person.profession}
+                                    linkedin={person.linkedin}
+                                    github={person.github}
+                                    email={person.email}
+                                    job={person.job}
+                                    description={person.description}
+                                    avatar={person.avatar}
+                                />
+                            ))}
+                    </div>
                 </div>
             </Container>
         </div>
