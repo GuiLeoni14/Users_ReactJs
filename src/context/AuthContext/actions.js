@@ -8,8 +8,9 @@ export const handleLogin = async (dispatch, values) => {
         const response = await axios.post(`${import.meta.env.VITE_REACT_APP_URL_API}/auth/login`, values);
         const { data } = response;
         localStorage.setItem('token', JSON.stringify(data.token));
+        localStorage.setItem('user', JSON.stringify(data.user));
         axios.defaults.headers.common['Authorization'] = `Bearer ${data.token}`;
-        dispatch({ type: types.AUTHENTICATE_USER, payload: true });
+        dispatch({ type: types.AUTHENTICATE_USER, payload: data.user });
         history.push('/');
     } catch (err) {
         const {
@@ -54,9 +55,10 @@ export const handleLogout = async (dispatch) => {
 };
 export const checkToken = (dispatch) => {
     const token = localStorage.getItem('token');
-    if (token) {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (token && user) {
         axios.defaults.headers.common['Authorization'] = `Bearer ${JSON.parse(token)}`;
-        dispatch({ type: types.AUTHENTICATE_USER, payload: true });
+        dispatch({ type: types.AUTHENTICATE_USER, payload: user });
     }
     dispatch({ type: types.LOADING_SUCCESS, payload: false });
 };

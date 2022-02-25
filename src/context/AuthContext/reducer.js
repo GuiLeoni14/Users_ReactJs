@@ -2,7 +2,7 @@ import * as types from './types';
 export const reducer = (state, action) => {
     switch (action.type) {
         case types.AUTHENTICATE_USER:
-            return { ...state, authenticated: action.payload };
+            return { ...state, authenticated: true, user: action.payload };
         case types.LOGOUT_USER:
             return { ...state, authenticated: action.payload };
         case types.LOADING_SUCCESS:

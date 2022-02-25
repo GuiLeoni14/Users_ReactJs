@@ -10,9 +10,10 @@ export default function Login() {
     const navigate = useNavigate();
     const [person, setPerson] = useState([]);
     const {
-        stateAuth: { authenticated, loading, loginAndRegisterErr },
+        stateAuth: { authenticated, loading, loginAndRegisterErr, user },
         setStateAuth,
     } = useContext(AuthContext);
+    console.log(user);
     useEffect(() => {
         if (authenticated) {
             return navigate('/');
