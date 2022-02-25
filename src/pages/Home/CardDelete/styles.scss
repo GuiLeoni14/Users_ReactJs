@@ -1,0 +1,13 @@
+.card_delete{
+    background-color: red;
+    padding: 1rem;
+    border-radius: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    h4{
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+}

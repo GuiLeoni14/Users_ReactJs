@@ -1,0 +1,21 @@
+@import '../../../layout/GlobalVariables/styles.scss';
+.form_person{
+    width: 100%;
+    max-width: 50rem;
+    background-color:$blue-600;
+    box-shadow: 0rem 0rem 1rem #000;
+    padding: 2rem;
+    .fields{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        label{
+            padding-left: 0rem;
+        }
+        button{
+            margin-top: 2rem;
+        }
+    }
+}

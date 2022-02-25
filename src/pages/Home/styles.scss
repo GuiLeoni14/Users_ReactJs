@@ -1,0 +1,13 @@
+.s_home{
+    min-height: 100vh;
+    .container{
+        .main_home{
+            width: 100%;
+            .card_person{
+                &:not(:first-child){
+                    margin-top: 4rem;
+                }
+            }
+        }
+    }
+}

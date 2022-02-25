@@ -5,7 +5,7 @@ import './styles.scss';
 import { addPerson } from '../../../context/PersonContext/actions';
 import { DefaultButton } from '../../../components/Buttons/DefaultButton';
 import { FaUserCircle } from 'react-icons/fa';
-import { RiLockPasswordFill } from 'react-icons/ri';
+import { RiH2, RiLockPasswordFill } from 'react-icons/ri';
 import { PersonContext } from '../../../context/PersonContext/context';
 export default function Form({ titleForm }) {
     const {
@@ -26,7 +26,8 @@ export default function Form({ titleForm }) {
     };
     return (
         <>
-            <form onSubmit={submit} className="form" data-aos="fade-up">
+            <form onSubmit={submit} className="form_person" data-aos="fade-up">
+                {error && <h2>{error}</h2>}
                 <div className="fields">
                     <Input
                         name="name"

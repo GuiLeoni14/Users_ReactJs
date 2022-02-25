@@ -23,6 +23,12 @@
         line-height: 3.5rem;
         padding: 0rem 4rem;
     }
+    &-delete{
+        background-color: #fff;
+        color: $red;
+        line-height: 3.5rem;
+        padding: 0rem 4rem;
+    }
     &:hover, &:focus{
         opacity: 0.5;
     }

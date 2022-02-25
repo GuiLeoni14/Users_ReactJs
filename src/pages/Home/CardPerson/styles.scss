@@ -1,0 +1,86 @@
+@import '../../../layout/GlobalVariables/styles.scss';
+.card_person{
+    width: 100%;
+    max-width: 40rem;
+    height: 30rem;
+    padding: 2rem;
+    display: flex;
+    background-color: $green-800;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 0.5rem;
+    position: relative;
+    .icon_edit{
+        background-color: $green-600;
+        box-shadow: 0rem 0rem 1rem #000;
+        padding: 1rem;
+        border-radius: 50%;
+        position: absolute;
+        top: -1rem;
+        right: 0rem;
+        z-index: 2;
+        cursor: pointer;
+        svg{
+            width: 2rem;
+            height: 2rem;
+        }
+    }
+    .icon_delete{
+        background-color: $red;
+        box-shadow: 0rem 0rem 1rem #000;
+        padding: 1rem;
+        border-radius: 50%;
+        position: absolute;
+        top: -1rem;
+        left: 0rem;
+        z-index: 2;
+        cursor: pointer;
+        svg{
+            width: 2rem;
+            height: 2rem;
+        }
+    }
+    .top{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .image{
+            width: 15rem;
+            height: 15rem;
+            border-radius: 50%;
+            overflow: hidden;
+            img{
+                max-width: 15rem;
+            }
+        }
+        .text{
+            h4{
+                font-size: 2.5rem;
+            }
+            span{
+                font-size: 2.3rem;
+            }
+        }
+    }
+    p{
+        margin: 1rem 0rem;
+        font-size: 1.5rem;
+    }
+    .contact{
+        align-self: flex-start;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        a{
+            svg{
+                width: 3rem;
+                height: 3rem;
+            }
+            &:not(:first-child){
+                margin-left: 1rem;
+            }
+        }
+    }
+}
