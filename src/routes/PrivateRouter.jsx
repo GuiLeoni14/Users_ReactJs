@@ -4,6 +4,7 @@ import { AuthContext } from '../context/AuthContext/context';
 import { useContext, useEffect } from 'react';
 import P from 'prop-types';
 import { checkToken } from '../context/AuthContext/actions';
+import Loading from '../components/Loading';
 export default function PrivateRouter({ children, redirectTo }) {
     const {
         stateAuth: { authenticated, loading },
@@ -15,7 +16,7 @@ export default function PrivateRouter({ children, redirectTo }) {
     }, [setStateAuth]);
 
     if (loading) {
-        return <h1>Loading</h1>;
+        return <Loading />;
     }
     return authenticated ? children : <Navigate to={redirectTo} />;
 }

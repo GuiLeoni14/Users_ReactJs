@@ -1,10 +1,11 @@
 import { AuthContext } from '../../context/AuthContext/context';
 import { useContext, useEffect, useState } from 'react';
 import { checkToken, handleLogin } from '../../context/AuthContext/actions';
-import { handleRegister } from '../../context/AuthContext/actions';
 import Form from '../../components/Form';
-import axios from 'axios';
+import './styles.scss';
 import { useNavigate } from 'react-router-dom';
+import Container from '../../layout/Container';
+import Loading from '../../components/Loading';
 export default function Login() {
     const navigate = useNavigate();
     const [person, setPerson] = useState([]);
@@ -18,13 +19,12 @@ export default function Login() {
         }
         checkToken(setStateAuth);
     }, [authenticated, navigate, setStateAuth]);
-
-    if (loading) {
-        return (
-            <div>
-                <h1>Carregando</h1>
-            </div>
-        );
-    }
-    return <Form />;
+    return (
+        <div className="s_login">
+            {loading && <Loading />}
+            <Container>
+                <Form />
+            </Container>
+        </div>
+    );
 }

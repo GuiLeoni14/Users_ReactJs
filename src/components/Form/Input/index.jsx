@@ -4,7 +4,6 @@ export default function Input({ type, placeholder, value, name, textLabel, handl
     return (
         <>
             <label htmlFor={name} className="label">
-                {icon}
                 <input
                     type={type}
                     placeholder={placeholder}
@@ -14,6 +13,7 @@ export default function Input({ type, placeholder, value, name, textLabel, handl
                     onChange={handleChange}
                     required
                 />
+                {icon}
             </label>
         </>
     );

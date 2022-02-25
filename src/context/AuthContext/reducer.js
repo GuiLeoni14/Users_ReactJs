@@ -7,6 +7,8 @@ export const reducer = (state, action) => {
             return { ...state, authenticated: action.payload };
         case types.LOADING_SUCCESS:
             return { ...state, loading: action.payload };
+        case types.LOADING:
+            return { ...state, loading: action.payload };
         case types.EMAIL_OR_PASSWORD_ERROR:
             return { ...state, loginAndRegisterErr: action.payload };
         case types.CREATED_USER_SUCCESS:

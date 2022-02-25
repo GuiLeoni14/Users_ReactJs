@@ -4,6 +4,7 @@ import history from './history';
 import { useNavigate } from 'react-router-dom';
 export const handleLogin = async (dispatch, values) => {
     try {
+        dispatch({ type: types.LOADING, payload: true });
         const response = await axios.post(`${import.meta.env.VITE_REACT_APP_URL_API}/auth/login`, values);
         const { data } = response;
         localStorage.setItem('token', JSON.stringify(data.token));
@@ -18,13 +19,15 @@ export const handleLogin = async (dispatch, values) => {
             },
         } = err;
         if (status === 404 || status === 422) {
-            return dispatch({ type: types.EMAIL_OR_PASSWORD_ERROR, payload: error });
+            dispatch({ type: types.EMAIL_OR_PASSWORD_ERROR, payload: error });
         }
     }
+    dispatch({ type: types.LOADING, payload: false });
 };
 
 export const handleRegister = async (dispatch, values, navigateTo) => {
     try {
+        dispatch({ type: types.LOADING, payload: true });
         const response = await axios.post(`${import.meta.env.VITE_REACT_APP_URL_API}/auth/register`, values);
         const { data } = response;
         navigateTo();
@@ -37,9 +40,10 @@ export const handleRegister = async (dispatch, values, navigateTo) => {
             },
         } = err;
         if (status === 404 || status === 422) {
-            return dispatch({ type: types.EMAIL_OR_PASSWORD_ERROR, payload: error });
+            dispatch({ type: types.EMAIL_OR_PASSWORD_ERROR, payload: error });
         }
     }
+    dispatch({ type: types.LOADING, payload: false });
 };
 
 export const handleLogout = async (dispatch) => {

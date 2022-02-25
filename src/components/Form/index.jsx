@@ -2,12 +2,16 @@ import FormLogin from './FormLogin';
 import P from 'prop-types';
 import './styles.scss';
 import { DefaultButton } from '../Buttons/DefaultButton';
-import { useRef } from 'react';
+import { useRef, useContext } from 'react';
 import FormCreateAccount from './FormCreateAccount';
+import { resetMessage } from '../../context/AuthContext/actions';
+import { AuthContext } from '../../context/AuthContext/context';
 export default function Form() {
+    const { setStateAuth } = useContext(AuthContext);
     const mainFormRef = useRef(null);
     const openContentSingIn = () => {
         mainFormRef.current.classList.toggle('open-singin-js');
+        resetMessage(setStateAuth);
     };
     return (
         <div className="main-form" ref={mainFormRef}>
@@ -17,7 +21,7 @@ export default function Form() {
                     <span>use your email for acccount</span>
                     <FormLogin />
                     <h4>
-                        <a href="/auth/register">your not account? create account</a>
+                        <a onClick={openContentSingIn}>your not account? create account</a>
                     </h4>
                 </div>
                 <div className="second">
@@ -43,7 +47,7 @@ export default function Form() {
                     <span>use your email for acccount</span>
                     <FormCreateAccount />
                     <h4>
-                        <a href="/auth/register">your not account? create account</a>
+                        <a onClick={openContentSingIn}>your account? login</a>
                     </h4>
                 </div>
             </div>

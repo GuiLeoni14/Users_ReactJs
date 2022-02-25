@@ -12,12 +12,14 @@
             border-radius: 0.3rem;
             padding-left: 1rem;
             display: flex;
+            flex-direction: row-reverse;
             justify-content: flex-start;
             align-items: center;
             svg{
                 width: 2rem;
                 height: 2rem;
                 margin-right: 1rem;
+                transition: all .3s;
             }
             input{
                 width: 100%;
@@ -34,9 +36,7 @@
             &:not(:first-child){
                 margin-top: 2rem;
             }
-        }
-        label input:hover, label svg{
-            svg{
+            input:focus + svg{
                 margin-top: -2rem;
             }
         }
