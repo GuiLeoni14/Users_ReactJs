@@ -6,7 +6,7 @@ export const reducer = (state, action) => {
         case types.LOAD_PERSON:
             return { ...state, persons: action.payload, error: false };
         case types.ADD_PERSON:
-            return { ...state, error: false };
+            return { ...state, messageSuccess: action.payload, error: false };
         case types.ERROR_PERSON:
             return { ...state, error: action.payload };
     }

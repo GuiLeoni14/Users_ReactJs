@@ -5,11 +5,27 @@
     box-shadow: 0rem 0rem 1rem #000;
     padding-top: 1rem;
     #title_form{
-        width: 100;
+        width: 100%;
         font-size: 2rem;
         color: $green-600;
         text-align: center;
         background-color: #fff;
+        padding: 1rem 0rem;
+    }
+    #message_error_form{
+        width: 100%;
+        font-size: 1.6rem;
+        color: #fff;
+        text-align: center;
+        background-color: $red;
+        padding: 1rem 0rem;
+    }
+    #message_success_form{
+        width: 100%;
+        font-size: 1.6rem;
+        color: #fff;
+        text-align: center;
+        background-color: $green-800;
         padding: 1rem 0rem;
     }
     .fields{

@@ -1,5 +1,6 @@
 import * as types from './types';
 import axios from 'axios';
+import history from '../AuthContext/history';
 export const loadPerson = async (dispatch) => {
     dispatch({ type: types.LOADING_PERSON, payload: true });
     try {
@@ -21,9 +22,11 @@ export const addPerson = async (dispatch, values) => {
     dispatch({ type: types.LOADING_PERSON, payload: true });
     try {
         console.log(values);
-        await axios.post(`${import.meta.env.VITE_REACT_APP_URL_API}/person`, values);
+        const response = await axios.post(`${import.meta.env.VITE_REACT_APP_URL_API}/person`, values);
+        const { data } = response;
         await loadPerson(dispatch);
-        dispatch({ type: types.ADD_PERSON });
+        history.push('/');
+        dispatch({ type: types.ADD_PERSON, payload: data.message });
     } catch (err) {
         const {
             response: {
@@ -69,8 +72,8 @@ export const editPerson = async (dispatch, values) => {
     }
     dispatch({ type: types.LOADING_PERSON, payload: false });
 };
-export const getStatusForGitHub = async (userName) => {
-    return fetch(`https://api.github.com/users/${userName}`)
-        .then((resp) => resp.json())
-        .then((data) => data);
+
+export const resetMessagesPerson = (dispatch) => {
+    dispatch({ type: types.ERROR_PERSON, payload: '' });
+    dispatch({ type: types.ADD_PERSON, payload: '' });
 };

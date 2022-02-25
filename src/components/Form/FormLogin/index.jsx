@@ -10,7 +10,9 @@ import { handleLogin } from '../../../context/AuthContext/actions';
 import { DefaultButton } from '../../Buttons/DefaultButton';
 import { resetMessage } from '../../../context/AuthContext/actions';
 import Loading from '../../Loading';
+import Check from '../../Check';
 export default function FormLogin({ titleForm }) {
+    const [checked, setChecked] = useState(false);
     const {
         stateAuth: { authenticated, loading, loginAndRegisterErr, messageSuccess },
         setStateAuth,
@@ -40,17 +42,18 @@ export default function FormLogin({ titleForm }) {
                     <Input
                         name="email"
                         type="text"
-                        textLabel="Email:"
+                        textLabel="Email"
                         handleChange={handleOnChange}
                         icon={<FaUserCircle />}
                     />
                     <Input
                         name="password"
-                        type="password"
-                        textLabel="Senha:"
+                        type={checked ? 'text' : 'password'}
+                        textLabel="Senha"
                         handleChange={handleOnChange}
                         icon={<RiLockPasswordFill />}
                     />
+                    <Check checked={checked} setChecked={setChecked} />
                     <DefaultButton customClass="login" text="Login" />
                 </div>
             </form>

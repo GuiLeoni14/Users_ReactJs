@@ -10,7 +10,10 @@ import { DefaultButton } from '../../Buttons/DefaultButton';
 import { useNavigate } from 'react-router-dom';
 import { handleRegister } from '../../../context/AuthContext/actions';
 import { resetMessage } from '../../../context/AuthContext/actions';
+import { MdEmail } from 'react-icons/md';
+import Check from '../../Check';
 export default function FormCreateAccount({ titleForm }) {
+    const [checked, setChecked] = useState(false);
     const {
         stateAuth: { authenticated, loading, loginAndRegisterErr },
         setStateAuth,
@@ -36,35 +39,24 @@ export default function FormCreateAccount({ titleForm }) {
             {titleForm && <h2>{titleForm}</h2>}
             {loginAndRegisterErr && <h3>{loginAndRegisterErr}</h3>}
             <div className="fields">
-                <Input
-                    name="name"
-                    type="text"
-                    textLabel="Nome:"
-                    handleChange={handleOnChange}
-                    icon={<FaUserCircle />}
-                />
-                <Input
-                    name="email"
-                    type="text"
-                    textLabel="Email:"
-                    handleChange={handleOnChange}
-                    icon={<FaUserCircle />}
-                />
+                <Input name="name" type="text" textLabel="Nome" handleChange={handleOnChange} icon={<FaUserCircle />} />
+                <Input name="email" type="text" textLabel="Email:" handleChange={handleOnChange} icon={<MdEmail />} />
                 <Input
                     name="password"
-                    type="password"
-                    textLabel="Senha:"
+                    type={checked ? 'text' : 'password'}
+                    textLabel="Senha"
                     handleChange={handleOnChange}
                     icon={<RiLockPasswordFill />}
                 />
                 <Input
                     name="confirmPassword"
-                    type="password"
-                    textLabel="Confirmar Senha:"
+                    type={checked ? 'text' : 'password'}
+                    textLabel="Confirme"
                     handleChange={handleOnChange}
                     icon={<RiLockPasswordFill />}
                 />
-                <DefaultButton customClass="login" text="Login" />
+                <Check checked={checked} setChecked={setChecked} />
+                <DefaultButton customClass="login" text="Register" />
             </div>
         </form>
     );

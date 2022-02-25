@@ -2,15 +2,7 @@ import './styles.scss';
 import * as Dialog from '@radix-ui/react-dialog';
 import { DefaultButton } from '../../../components/Buttons/DefaultButton';
 import P from 'prop-types';
-export default function MyDialog({
-    children,
-    content,
-    typeButton,
-    textButton,
-    titleForm,
-    handleSubmitForm,
-    setMessage,
-}) {
+export default function MyDialog({ children }) {
     return (
         <Dialog.Root>
             <Dialog.Trigger>
@@ -24,10 +16,5 @@ export default function MyDialog({
 }
 
 MyDialog.propTypes = {
-    handleSubmitForm: P.func,
-    content: P.node,
-    typeButton: P.string,
-    textButton: P.string,
-    setMessage: P.func,
-    titleForm: P.string,
+    children: P.node,
 };

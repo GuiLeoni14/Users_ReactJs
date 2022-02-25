@@ -17,6 +17,7 @@ export function DefaultButton({ children, text, link, customClass, type = 'submi
 
 DefaultButton.propTypes = {
     text: P.string,
+    children: P.node,
     link: P.string,
     customClass: P.string,
     type: P.string,

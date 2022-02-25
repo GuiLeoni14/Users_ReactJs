@@ -42,10 +42,10 @@ export default function CardPerson({ name, profession, avatar, description, gith
             </div>
             <p>{description}</p>
             <div className="contact">
-                <a href={linkedin} id="github_clinkedin">
+                <a href={github} id="github_clinkedin">
                     <FaGithub />
                 </a>
-                <a href={github} id="github_contact">
+                <a href={linkedin} id="github_contact">
                     <FaLinkedin />
                 </a>
             </div>

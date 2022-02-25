@@ -37,9 +37,7 @@ export default function Home() {
                     <div className="top_content">
                         <Input type="search" placeholder="Pesquisar por pessoas" />
                         <MyDialog>
-                            <Form
-                                TypeButton={<DefaultButton customClass="add" text="Adicionar Registro" type="submit" />}
-                            />
+                            <Form />
                         </MyDialog>
                     </div>
                     <div className="persons">

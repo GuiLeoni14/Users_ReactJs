@@ -2,7 +2,7 @@ import Input from '../../../components/Form/Input';
 import P from 'prop-types';
 import { useState, useEffect, useContext } from 'react';
 import './styles.scss';
-import { addPerson, editPerson } from '../../../context/PersonContext/actions';
+import { addPerson, editPerson, resetMessagesPerson } from '../../../context/PersonContext/actions';
 import { DefaultButton } from '../../../components/Buttons/DefaultButton';
 import { FaGamepad, FaGithub, FaLinkedin, FaUserCircle } from 'react-icons/fa';
 import { RiFileUserLine, RiH2, RiH3, RiLockPasswordFill } from 'react-icons/ri';
@@ -11,12 +11,13 @@ import { MdDescription, MdInsertPhoto, MdOutlineHomeWork } from 'react-icons/md'
 export default function Form({ titleForm, valuesPerson, editButton }) {
     console.log(valuesPerson);
     const {
-        statePerson: { error },
+        statePerson: { error, messageSuccess },
         personDispatch,
     } = useContext(PersonContext);
     const [values, setValues] = useState(valuesPerson || {}); // valuesDev tem que vir primeiro
     const handleOnChange = (e) => {
         e.preventDefault();
+        resetMessagesPerson(personDispatch);
         setValues({
             ...values,
             [e.target.name]: e.target.value,
@@ -34,7 +35,8 @@ export default function Form({ titleForm, valuesPerson, editButton }) {
         <>
             <form onSubmit={submit} className="form_person" data-aos="fade-up">
                 {titleForm && <h3 id="title_form">{titleForm}</h3>}
-                {error && <h2>{error}</h2>}
+                {error && <h3 id="message_error_form">{error}</h3>}
+                {messageSuccess && <h3 id="message_success_form">{messageSuccess}</h3>}
                 <div className="fields">
                     <Input
                         name="name"
@@ -53,9 +55,9 @@ export default function Form({ titleForm, valuesPerson, editButton }) {
                         icon={<MdOutlineHomeWork />}
                     />
                     <Input
-                        name="avatar(url)"
+                        name="avatar"
                         type="text"
-                        textLabel="avatar"
+                        textLabel="avatar(url)"
                         handleChange={handleOnChange}
                         value={values ? values.avatar : ''}
                         icon={<MdInsertPhoto />}
@@ -106,4 +108,5 @@ export default function Form({ titleForm, valuesPerson, editButton }) {
 Form.propTypes = {
     titleForm: P.string,
     valuesPerson: P.any,
+    editButton: P.any,
 };
