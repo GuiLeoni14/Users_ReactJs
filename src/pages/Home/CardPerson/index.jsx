@@ -2,10 +2,11 @@ import './styles.scss';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { FiEdit } from 'react-icons/fi';
 import { RiDeleteBin3Fill } from 'react-icons/ri';
-import CardHover from '../../../components/CardHover';
 import Form from '../Form';
 import CardDelete from '../CardDelete';
 import P from 'prop-types';
+import { useState } from 'react';
+import DialogOpen from '../DialogOpen';
 export default function CardPerson({ name, avatar, description, github, linkedin, email, id, job }) {
     const valuesPeron = {
         name,
@@ -17,18 +18,31 @@ export default function CardPerson({ name, avatar, description, github, linkedin
         email,
         id,
     };
+    const [openDialogEdit, setOpenDialogEdit] = useState(false);
+    const [openDialogDelete, setOpenDialogDelete] = useState(false);
     return (
         <div className="card_person">
-            <div className="icon_edit">
-                <CardHover icon={<FiEdit />}>
-                    <Form valuesPerson={valuesPeron} editButton={true} titleForm="Editar Registro" />
-                </CardHover>
+            <div className="icon_edit" onClick={() => setOpenDialogEdit(!openDialogEdit)}>
+                <FiEdit />
             </div>
-            <div className="icon_delete">
-                <CardHover icon={<RiDeleteBin3Fill />}>
-                    <CardDelete id={id} />
-                </CardHover>
+            {openDialogEdit && (
+                <DialogOpen>
+                    <Form
+                        setFunction={() => setOpenDialogEdit(!openDialogEdit)}
+                        valuesPerson={valuesPeron}
+                        editButton={true}
+                        titleForm="Editar Registro"
+                    />
+                </DialogOpen>
+            )}
+            <div className="icon_delete" onClick={() => setOpenDialogDelete(!openDialogDelete)}>
+                <RiDeleteBin3Fill />
             </div>
+            {openDialogDelete && (
+                <DialogOpen>
+                    <CardDelete id={id} name={name} setFunction={() => setOpenDialogDelete(!openDialogDelete)} />
+                </DialogOpen>
+            )}
             <div className="top">
                 <div className="image">
                     <img src={avatar} alt="" />

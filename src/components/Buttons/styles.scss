@@ -16,22 +16,40 @@
         background-color: $green-600;
         line-height: 3.5rem;
         padding: 0rem 4rem;
+        &:hover{
+            background-color:#fff;
+            color: $green-600;
+        }
     }
     &-edit{
         background-color: #d3c22a;
         line-height: 3.5rem;
         padding: 0rem 4rem;
+        &:hover{
+            background-color:#fff;
+            color: #d3c22a;
+        }
     }
     &-sing{
         background-color: #fff;
         color: $green-600;
         line-height: 3.5rem;
         padding: 0rem 4rem;
+        border: 0.1rem solid transparent;
+        &:hover{
+            background-color:$green-600;
+            color: #fff;
+            border-color: #fff;
+        }
     }
     &-delete{
         background-color: #a01717;
         line-height: 3.5rem;
         padding: 0rem 4rem;
+        &:hover{
+            background-color:#fff;
+            color: #a01717;
+        }
     }
     &-add{
         font-size: 2rem;
@@ -40,14 +58,19 @@
         line-height: 4rem;
         padding: 0rem 2rem;
         border-radius: 0.2rem;
+        &:hover{
+            background-color:$green-600;
+            color: #fff;
+        }
     }
     &-logout{
         background-color: #fff;
         color: $green-600;
         line-height: 3.5rem;
         padding: 0rem 4rem;
-    }
-    &:hover, &:focus{
-        opacity: 0.5;
+        &:hover{
+            background-color: $green-600;
+            color: #fff;
+        }
     }
 }
