@@ -3,8 +3,13 @@ import { DefaultButton } from '../../../components/Buttons/DefaultButton';
 import './styles.scss';
 import { handleLogout } from '../../../context/AuthContext/actions';
 import { AuthContext } from '../../../context/AuthContext/context';
-import { useContext } from 'react';
-export default function CardUser() {
+import { useContext, useEffect } from 'react';
+export default function CardUser({ setFunction }) {
+    useEffect(() => {
+        if (setFunction) {
+            return () => setFunction();
+        }
+    }, []);
     const {
         stateAuth: { user },
         setStateAuth,
@@ -20,4 +25,5 @@ export default function CardUser() {
 
 CardUser.propTypes = {
     user: P.any,
+    setFunction: P.func,
 };
