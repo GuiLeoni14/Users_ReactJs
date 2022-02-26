@@ -1,0 +1,53 @@
+@import '../../layout/GlobalVariables/styles.scss';
+.btn{
+    padding: 0rem 4rem;
+    line-height: 4.8rem;
+    border-radius: 2rem;
+    font-family: 'Maven Pro', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2rem;
+    display: inline-block;
+    background-color: $green-600;
+    cursor: pointer;
+    transition: all .3s;
+    color: #000;
+    &-login{
+        background-color: $green-600;
+        line-height: 3.5rem;
+        padding: 0rem 4rem;
+    }
+    &-edit{
+        background-color: #d3c22a;
+        line-height: 3.5rem;
+        padding: 0rem 4rem;
+    }
+    &-sing{
+        background-color: #fff;
+        color: $green-600;
+        line-height: 3.5rem;
+        padding: 0rem 4rem;
+    }
+    &-delete{
+        background-color: #a01717;
+        line-height: 3.5rem;
+        padding: 0rem 4rem;
+    }
+    &-add{
+        font-size: 2rem;
+        background-color: #fff;
+        color: $green-600;
+        line-height: 4rem;
+        padding: 0rem 2rem;
+        border-radius: 0.2rem;
+    }
+    &-logout{
+        background-color: #fff;
+        color: $green-600;
+        line-height: 3.5rem;
+        padding: 0rem 4rem;
+    }
+    &:hover, &:focus{
+        opacity: 0.5;
+    }
+}

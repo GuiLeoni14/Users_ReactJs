@@ -1,0 +1,25 @@
+.form{
+    width: 80%;
+    .fields{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        button{
+            margin: 2rem 0rem;
+        }
+    }
+    #message_error{
+        text-align: center;
+        color: #ff6b6b;
+        font-size: 2rem;
+        margin-bottom: 0.2rem;
+    }
+    #message_success{
+        text-align: center;
+        color: #00b63d;
+        font-size: 2rem;
+        margin-bottom: 0.2rem;
+    }
+}
