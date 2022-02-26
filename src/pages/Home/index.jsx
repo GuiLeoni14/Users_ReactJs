@@ -1,7 +1,7 @@
 import { AuthContext } from '../../context/AuthContext/context';
 import { useContext, useEffect } from 'react';
 import { PersonContext } from '../../context/PersonContext/context';
-import { addPerson, loadPerson } from '../../context/PersonContext/actions';
+import { loadPerson } from '../../context/PersonContext/actions';
 import Container from '../../layout/Container';
 import { MdManageAccounts } from 'react-icons/md';
 import Form from './Form';
@@ -9,11 +9,9 @@ import './styles.scss';
 import CardPerson from './CardPerson';
 import Loading from '../../components/Loading';
 import CardHover from '../../components/CardHover';
-import { FaUser } from 'react-icons/fa';
-import Input from '../../components/Form/Input';
 import CardUser from './CardUser';
-import { DefaultButton } from '../../components/Buttons/DefaultButton';
 import MyDialog from './Dialog';
+import logo from '../../assets/img/logo.svg';
 export default function Home() {
     const {
         stateAuth: { user },
@@ -36,9 +34,10 @@ export default function Home() {
                                 <CardUser user={user} />
                             </CardHover>
                         </div>
-                        <Input type="search" placeholder="Pesquisar por pessoas" />
+                        <img src={logo} id="logo" />
+                        {/* <Input type="search" placeholder="Pesquisar por pessoas" /> */}
                         <MyDialog>
-                            <Form />
+                            <Form titleForm="Criar registro" />
                         </MyDialog>
                     </div>
                     <div className="persons">
@@ -48,11 +47,10 @@ export default function Home() {
                                     key={person._id}
                                     id={person._id}
                                     name={person.name}
-                                    profession={person.profession}
+                                    job={person.job}
                                     linkedin={person.linkedin}
                                     github={person.github}
                                     email={person.email}
-                                    job={person.job}
                                     description={person.description}
                                     avatar={person.avatar}
                                 />

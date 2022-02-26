@@ -1,16 +1,14 @@
-import Input from '../Input';
+import Input from '../../../../components/Input';
 import P from 'prop-types';
 import { useState } from 'react';
 import './styles.scss';
-import { AuthContext } from '../../../context/AuthContext/context';
+import { AuthContext } from '../../../../context/AuthContext/context';
 import { useContext } from 'react';
 import { FaUserCircle } from 'react-icons/fa';
 import { RiLockPasswordFill } from 'react-icons/ri';
-import { handleLogin } from '../../../context/AuthContext/actions';
-import { DefaultButton } from '../../Buttons/DefaultButton';
-import { resetMessage } from '../../../context/AuthContext/actions';
-import Loading from '../../Loading';
-import Check from '../../Check';
+import { handleLogin, resetMessage } from '../../../../context/AuthContext/actions';
+import { DefaultButton } from '../../../../components/Buttons/DefaultButton';
+import Check from '../../../../components/Check';
 export default function FormLogin({ titleForm }) {
     const [checked, setChecked] = useState(false);
     const {
@@ -41,7 +39,7 @@ export default function FormLogin({ titleForm }) {
                 <div className="fields">
                     <Input
                         name="email"
-                        type="text"
+                        type="email"
                         textLabel="Email"
                         handleChange={handleOnChange}
                         icon={<FaUserCircle />}

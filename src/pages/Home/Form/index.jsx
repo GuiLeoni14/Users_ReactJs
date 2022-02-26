@@ -1,4 +1,4 @@
-import Input from '../../../components/Form/Input';
+import Input from '../../../components/Input';
 import P from 'prop-types';
 import { useState, useEffect, useContext } from 'react';
 import './styles.scss';
@@ -47,11 +47,11 @@ export default function Form({ titleForm, valuesPerson, editButton }) {
                         icon={<FaUserCircle />}
                     />
                     <Input
-                        name="profession"
+                        name="job"
                         type="text"
-                        textLabel="profession"
+                        textLabel="job"
                         handleChange={handleOnChange}
-                        value={values ? values.profession : ''}
+                        value={values ? values.job : ''}
                         icon={<MdOutlineHomeWork />}
                     />
                     <Input
@@ -85,14 +85,6 @@ export default function Form({ titleForm, valuesPerson, editButton }) {
                         handleChange={handleOnChange}
                         value={values ? values.description : ''}
                         icon={<MdDescription />}
-                    />
-                    <Input
-                        name="job"
-                        type="text"
-                        textLabel="job"
-                        handleChange={handleOnChange}
-                        value={values ? values.job : ''}
-                        icon={<FaGamepad />}
                     />
                     {editButton ? (
                         <DefaultButton customClass="edit" text="Editar" type="submit" />

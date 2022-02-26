@@ -6,17 +6,16 @@ import CardHover from '../../../components/CardHover';
 import Form from '../Form';
 import CardDelete from '../CardDelete';
 import P from 'prop-types';
-export default function CardPerson({ name, profession, avatar, description, github, linkedin, email, id, job }) {
+export default function CardPerson({ name, avatar, description, github, linkedin, email, id, job }) {
     const valuesPeron = {
         name,
-        profession,
+        job,
         avatar,
         description,
         github,
         linkedin,
         email,
         id,
-        job,
     };
     return (
         <div className="card_person">
@@ -36,11 +35,12 @@ export default function CardPerson({ name, profession, avatar, description, gith
                 </div>
                 <div className="text">
                     <h4>{name}</h4>
-                    <span>{profession}</span>
                     <span>{job}</span>
                 </div>
             </div>
-            <p>{description}</p>
+            <div className="description">
+                <p>{description}</p>
+            </div>
             <div className="contact">
                 <a href={github} id="github_clinkedin">
                     <FaGithub />
@@ -55,12 +55,11 @@ export default function CardPerson({ name, profession, avatar, description, gith
 
 CardPerson.propTypes = {
     name: P.string,
-    profession: P.string,
+    job: P.string,
     avatar: P.string,
     description: P.string,
     github: P.string,
     linkedin: P.string,
     email: P.string,
     id: P.string,
-    job: P.string,
 };

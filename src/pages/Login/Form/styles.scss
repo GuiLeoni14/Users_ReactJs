@@ -1,4 +1,4 @@
-@import '../../layout/GlobalVariables/styles.scss';
+@import '../../../layout/GlobalVariables/styles.scss';
 .main-form{
     width: 100%;
     max-width: 80rem;
@@ -64,7 +64,8 @@
             font-size: 3rem;
         }
         p{
-            font-size: 1.2rem;
+            font-size: 1.4rem;
+            text-align: justify;
             line-height: 1.5rem;
             margin: 2rem 0rem;
         }

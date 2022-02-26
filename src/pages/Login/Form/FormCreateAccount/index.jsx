@@ -1,17 +1,16 @@
-import Input from '../Input';
+import Input from '../../../../components/Input';
 import P from 'prop-types';
 import { useEffect, useState } from 'react';
 import './styles.scss';
-import { AuthContext } from '../../../context/AuthContext/context';
+import { AuthContext } from '../../../../context/AuthContext/context';
 import { useContext } from 'react';
 import { FaUserCircle } from 'react-icons/fa';
 import { RiLockPasswordFill } from 'react-icons/ri';
-import { DefaultButton } from '../../Buttons/DefaultButton';
+import { DefaultButton } from '../../../../components/Buttons/DefaultButton';
 import { useNavigate } from 'react-router-dom';
-import { handleRegister } from '../../../context/AuthContext/actions';
-import { resetMessage } from '../../../context/AuthContext/actions';
+import { handleRegister, resetMessage } from '../../../../context/AuthContext/actions';
 import { MdEmail } from 'react-icons/md';
-import Check from '../../Check';
+import Check from '../../../../components/Check';
 export default function FormCreateAccount({ titleForm }) {
     const [checked, setChecked] = useState(false);
     const {
@@ -40,7 +39,7 @@ export default function FormCreateAccount({ titleForm }) {
             {loginAndRegisterErr && <h3>{loginAndRegisterErr}</h3>}
             <div className="fields">
                 <Input name="name" type="text" textLabel="Nome" handleChange={handleOnChange} icon={<FaUserCircle />} />
-                <Input name="email" type="text" textLabel="Email:" handleChange={handleOnChange} icon={<MdEmail />} />
+                <Input name="email" type="email" textLabel="Email:" handleChange={handleOnChange} icon={<MdEmail />} />
                 <Input
                     name="password"
                     type={checked ? 'text' : 'password'}

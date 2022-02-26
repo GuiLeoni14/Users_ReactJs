@@ -1,7 +1,7 @@
 import { AuthContext } from '../../context/AuthContext/context';
 import { useContext, useEffect, useState } from 'react';
 import { checkToken, handleLogin } from '../../context/AuthContext/actions';
-import Form from '../../components/Form';
+import Form from './Form';
 import './styles.scss';
 import { useNavigate } from 'react-router-dom';
 import Container from '../../layout/Container';

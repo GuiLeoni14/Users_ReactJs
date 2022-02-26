@@ -7,7 +7,7 @@
     display: flex;
     background-color: $green-800;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
     border-radius: 0.5rem;
     position: relative;
@@ -72,16 +72,24 @@
             }
         }
     }
-    p{
+    .description{
         width: 100%;
-        margin: 1rem 0rem;
-        font-size: 1.5rem;
+        overflow: hidden;
+        span{
+            font-size: 1.6rem;
+        }
+        p{
+            width: 100%;
+            margin: 0.5rem 0rem 1rem 0rem;
+            font-size: 1.5rem;
+        }
     }
     .contact{
         align-self: flex-start;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        overflow: hidden;
         a{
             svg{
                 width: 3rem;
