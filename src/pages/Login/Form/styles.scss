@@ -16,10 +16,12 @@
     }
     .signin{
         pointer-events: none;
+        display: none;
         z-index: 0;
     }
     .login{
         pointer-events: all;
+        display: flex;
         z-index: 1;
     }
     .primary{
@@ -58,7 +60,7 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        padding: 0rem 1rem;
+        padding: 1rem;
         background-color: $green-600;
         h2{
             font-size: 3rem;
@@ -72,15 +74,25 @@
         button{
         }
     }
+    @media (max-width: 600px) {
+        .signin, .login{
+            flex-direction: column;
+        }
+        .second, .primary{
+            width: 100%;
+        }
+    }
 }
 
 .open-signin-js{
     .signin{
         pointer-events: all;
+        display: flex;
         z-index: 1;
     }
     .login{
         pointer-events: none;
+        display: none;
         z-index: 0;
     }
 }
