@@ -8,11 +8,13 @@ import Form from './Form';
 import './styles.scss';
 import CardPerson from './CardPerson';
 import Loading from '../../components/Loading';
-import CardHover from '../../components/CardHover';
 import CardUser from './CardUser';
 import MyDialog from './Dialog';
 import logo from '../../assets/img/logo.svg';
+import DialogOpen from './DialogOpen';
+import { useState } from 'react';
 export default function Home() {
+    const [openDialogUser, setOpenDialogUser] = useState(false);
     const {
         stateAuth: { user },
     } = useContext(AuthContext);
@@ -29,11 +31,14 @@ export default function Home() {
                 {loading && <Loading />}
                 <div className="main_home">
                     <div className="top_content">
-                        <div className="user">
-                            <CardHover icon={<MdManageAccounts />}>
-                                <CardUser user={user} />
-                            </CardHover>
+                        <div className="user" onClick={() => setOpenDialogUser(!openDialogUser)}>
+                            <MdManageAccounts />
                         </div>
+                        {openDialogUser && (
+                            <DialogOpen>
+                                <CardUser user={user} setFunction={() => setOpenDialogUser(!openDialogUser)} />
+                            </DialogOpen>
+                        )}
                         <img src={logo} id="logo" />
                         {/* <Input type="search" placeholder="Pesquisar por pessoas" /> */}
                         <MyDialog>

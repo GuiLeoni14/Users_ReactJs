@@ -4,12 +4,16 @@ import { useState, useEffect, useContext } from 'react';
 import './styles.scss';
 import { addPerson, editPerson, resetMessagesPerson } from '../../../context/PersonContext/actions';
 import { DefaultButton } from '../../../components/Buttons/DefaultButton';
-import { FaGamepad, FaGithub, FaLinkedin, FaUserCircle } from 'react-icons/fa';
-import { RiFileUserLine, RiH2, RiH3, RiLockPasswordFill } from 'react-icons/ri';
+import { FaGithub, FaLinkedin, FaUserCircle } from 'react-icons/fa';
 import { PersonContext } from '../../../context/PersonContext/context';
 import { MdDescription, MdInsertPhoto, MdOutlineHomeWork } from 'react-icons/md';
-export default function Form({ titleForm, valuesPerson, editButton }) {
+export default function Form({ titleForm, valuesPerson, editButton, setFunction }) {
     console.log(valuesPerson);
+    useEffect(() => {
+        if (setFunction) {
+            return () => setFunction();
+        }
+    }, []);
     const {
         statePerson: { error, messageSuccess },
         personDispatch,
@@ -101,4 +105,5 @@ Form.propTypes = {
     titleForm: P.string,
     valuesPerson: P.any,
     editButton: P.any,
+    setFunction: P.func,
 };
