@@ -6,6 +6,7 @@ import { useRef, useContext } from 'react';
 import FormCreateAccount from './FormCreateAccount';
 import { resetMessage } from '../../context/AuthContext/actions';
 import { AuthContext } from '../../context/AuthContext/context';
+import logo from '../../assets/img/logo.svg';
 export default function Form() {
     const { setStateAuth } = useContext(AuthContext);
     const mainFormRef = useRef(null);
@@ -17,7 +18,7 @@ export default function Form() {
         <div className="main-form" ref={mainFormRef}>
             <div className="login" data-aos="fade-up">
                 <div className="primary">
-                    <h2>Sign In System</h2>
+                    <img src={logo} alt="" />
                     <span>use your email for account</span>
                     <FormLogin />
                     <h4>
@@ -43,7 +44,7 @@ export default function Form() {
                     <DefaultButton text="Login" customClass="sing" handleClick={openContentSignIn} />
                 </div>
                 <div className="primary">
-                    <h2>Sign InSystem</h2>
+                    <img src={logo} alt="" />
                     <span>use your email for account</span>
                     <FormCreateAccount />
                     <h4>

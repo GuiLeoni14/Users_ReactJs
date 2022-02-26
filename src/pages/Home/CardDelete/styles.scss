@@ -1,7 +1,7 @@
 @import '../../../layout/GlobalVariables/styles.scss';
 .card_delete{
     width: 100%;
-    max-width: 30rem;
+    max-width: 35rem;
     background-color: $blue-500;
     padding: 1rem;
     border-radius: 0.8rem;
@@ -10,7 +10,7 @@
     justify-content: center;
     flex-direction: column;
     h4{
-        font-size: 1.4rem;
+        font-size: 1.6rem;
         margin-bottom: 1rem;
     }
 }

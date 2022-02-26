@@ -3,6 +3,7 @@ import { useContext, useEffect } from 'react';
 import { PersonContext } from '../../context/PersonContext/context';
 import { addPerson, loadPerson } from '../../context/PersonContext/actions';
 import Container from '../../layout/Container';
+import { MdManageAccounts } from 'react-icons/md';
 import Form from './Form';
 import './styles.scss';
 import CardPerson from './CardPerson';
@@ -29,12 +30,12 @@ export default function Home() {
             <Container>
                 {loading && <Loading />}
                 <div className="main_home">
-                    <div className="user">
-                        <CardHover icon={<FaUser />}>
-                            <CardUser user={user} />
-                        </CardHover>
-                    </div>
                     <div className="top_content">
+                        <div className="user">
+                            <CardHover icon={<MdManageAccounts />}>
+                                <CardUser user={user} />
+                            </CardHover>
+                        </div>
                         <Input type="search" placeholder="Pesquisar por pessoas" />
                         <MyDialog>
                             <Form />

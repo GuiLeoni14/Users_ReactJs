@@ -41,6 +41,12 @@
         padding: 0rem 2rem;
         border-radius: 0.2rem;
     }
+    &-logout{
+        background-color: #fff;
+        color: $green-600;
+        line-height: 3.5rem;
+        padding: 0rem 4rem;
+    }
     &:hover, &:focus{
         opacity: 0.5;
     }
