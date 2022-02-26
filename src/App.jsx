@@ -18,6 +18,7 @@ function App() {
                 <Router>
                     <MyRoutes />
                 </Router>
+                <Footer />
             </PersonProvider>
         </AuthProvider>
     );

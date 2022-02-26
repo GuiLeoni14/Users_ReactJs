@@ -1,15 +1,13 @@
 import { FaDiscord, FaGithub, FaLinkedin } from 'react-icons/fa';
 import Container from '../Container';
+import './styles.scss';
 export default function Footer() {
     return (
-        <Footer>
+        <footer>
             <Container>
-                <a href="https://www.linkedin.com/in/guileoni14/" target="_blank" rel="noopener noreferrer">
-                    <h4>Desenvolvido por Guilherme dos Reis Leoni</h4>
-                </a>
                 <div className="contact">
-                    <a href="https://discord.gg/ballerini" target="_blank" rel="noopener noreferrer">
-                        <FaDiscord />
+                    <a href="https://www.linkedin.com/in/guileoni14/" target="_blank" rel="noopener noreferrer">
+                        <h4>Desenvolvido por Guilherme dos Reis Leoni</h4>
                     </a>
                     <a href="https://www.linkedin.com/in/guileoni14/" target="_blank" rel="noopener noreferrer">
                         <FaLinkedin />
@@ -19,6 +17,6 @@ export default function Footer() {
                     </a>
                 </div>
             </Container>
-        </Footer>
+        </footer>
     );
 }
