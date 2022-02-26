@@ -5,14 +5,21 @@ import AuthProvider from './context/AuthContext';
 import { handleLogin } from './context/AuthContext/actions';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import PersonProvider from './context/PersonContext';
+import NavBar from './layout/NavBar';
+import Footer from './layout/Footer';
 
 function App() {
     AOS.init();
     return (
         <AuthProvider>
-            <Router>
-                <MyRoutes />
-            </Router>
+            <PersonProvider>
+                <NavBar />
+                <Router>
+                    <MyRoutes />
+                </Router>
+                <Footer />
+            </PersonProvider>
         </AuthProvider>
     );
 }

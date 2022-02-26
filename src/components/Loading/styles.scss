@@ -1,6 +1,6 @@
 .s_loading{
     position: fixed;
-    z-index: 2022;
+    z-index: 2147483647777;
     top: 0;
     right: 0;
     left: 0;
@@ -9,7 +9,6 @@
     align-items: center;
     justify-content: center;
     background-color: rgba(255, 255, 255, 0.5);
-    pointer-events: none;
     .container{
         img{
             width: 15rem;
