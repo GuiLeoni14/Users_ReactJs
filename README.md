@@ -7,7 +7,7 @@ Desafio proposto na comunidade da Rafaela Ballerini, com objetivo de criar um AP
 ## Objetivo:
 + Desenvolver uma aplicação com autenticação através de uma api feita em NodeJs.
 + Fazer a comunicação entre frond-end(Reactjs) e back-end(NodeJs).
-+ Login/Register de usuários.
++ Login/Register/Logout de usuários.
 + Gerenciamento de registros(CREATE,UPDATE,DELETE).
 
 ## Aprendizado
