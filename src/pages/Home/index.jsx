@@ -30,7 +30,7 @@ export default function Home() {
             <Container>
                 {loading && <Loading />}
                 <div className="main_home">
-                    <div className="top_content">
+                    <div className="top_content" data-aos="fade-down-right">
                         <div className="user" onClick={() => setOpenDialogUser(!openDialogUser)}>
                             <MdManageAccounts />
                         </div>

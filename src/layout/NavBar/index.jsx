@@ -3,7 +3,7 @@ import Container from '../Container';
 import './styles.scss';
 export default function NavBar() {
     return (
-        <header>
+        <header data-aos="fade-down">
             <Container>
                 <div className="contact">
                     <a href="https://discord.gg/ballerini" target="_blank" rel="noopener noreferrer">
