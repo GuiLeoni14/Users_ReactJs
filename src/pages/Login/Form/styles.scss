@@ -77,9 +77,13 @@
     @media (max-width: 600px) {
         .signin, .login{
             flex-direction: column;
+            justify-content: center;
         }
         .second, .primary{
             width: 100%;
+        }
+        .second{
+            display: none;
         }
     }
 }
