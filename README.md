@@ -15,7 +15,6 @@ Desafio proposto na comunidade da Rafaela Ballerini, com objetivo de criar uma A
 na aplicação.
 
 ## Instalação
-+ Confira as variáveis de ambiente necessárias contidas em no arquivo ".env.example"
 - `git clone` https://github.com/GuiLeoni14/Users_ReactJs .
 - `npm install` || `yarn install`
 - `node index.jsx`
