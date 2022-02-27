@@ -7,7 +7,7 @@ export default function Footer() {
             <Container>
                 <div className="contact">
                     <a href="https://www.linkedin.com/in/guileoni14/" target="_blank" rel="noopener noreferrer">
-                        <h4>Desenvolvido por Guilherme dos Reis Leoni</h4>
+                        <h4>Desenvolvido por Guilherme Leoni</h4>
                     </a>
                     <a href="https://www.linkedin.com/in/guileoni14/" target="_blank" rel="noopener noreferrer">
                         <FaLinkedin />
