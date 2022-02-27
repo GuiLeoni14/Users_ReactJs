@@ -1,5 +1,5 @@
 # Users_Reactjs
-Desafio proposto na comunidade da Rafaela Ballerini, com objetivo de criar um API com Nodejs com autenticação, utilizei o react para fazer o front-end.
+Desafio proposto na comunidade da Rafaela Ballerini, com objetivo de criar uma API Rest com Nodejs implementando autenticação, utilizei o react para fazer o front-end.
 + Confira o projeto aqui: https://guileoni-desafio-react-users.netlify.app
 - Esse projeto tem ligação com: https://github.com/GuiLeoni14/Api_Users_NodeJs
 > Status: Completed ⚠️
@@ -13,6 +13,12 @@ Desafio proposto na comunidade da Rafaela Ballerini, com objetivo de criar um AP
 ## Aprendizado
 + Ao finalizar este projeto, pratiquei diversos conceitos relacionados a React, principalmente o ecossistema que envolve a autenticação de usuários
 na aplicação.
+
++ Confira as variáveis de ambiente necessárias contidas em no arquivo ".env.example"
+- `git clone` https://github.com/GuiLeoni14/Users_ReactJs .
+- `npm install` || `yarn install`
+- `node index.jsx` || `node start`(nodemon)
+
 ## Tecnologias usadas:
 
 <table>
