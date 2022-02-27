@@ -32,4 +32,9 @@ header{
             }
         }
     }
+    @media (max-height: 690px) {
+        position: relative;
+        top: initial;
+        right: initial;
+    }
 }
