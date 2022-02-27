@@ -10,7 +10,10 @@ import NavBar from './layout/NavBar';
 import Footer from './layout/Footer';
 
 function App() {
-    AOS.init();
+    AOS.init({
+        once: false,
+        duration: 1000,
+    });
     return (
         <AuthProvider>
             <PersonProvider>
