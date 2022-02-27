@@ -11,8 +11,9 @@ import Footer from './layout/Footer';
 
 function App() {
     AOS.init({
-        once: false,
+        once: true,
         duration: 1000,
+        disable: 'mobile',
     });
     return (
         <AuthProvider>
