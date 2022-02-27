@@ -6,7 +6,7 @@ import Form from '../Form';
 import CardDelete from '../CardDelete';
 import P from 'prop-types';
 import { useState } from 'react';
-import DialogOpen from '../DialogOpen';
+import DialogOpen from '../DialogMount';
 export default function CardPerson({ name, avatar, description, github, linkedin, email, id, job }) {
     const valuesPeron = {
         name,

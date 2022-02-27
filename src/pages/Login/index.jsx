@@ -13,7 +13,6 @@ export default function Login() {
         stateAuth: { authenticated, loading, loginAndRegisterErr, user },
         setStateAuth,
     } = useContext(AuthContext);
-    console.log(user);
     useEffect(() => {
         if (authenticated) {
             return navigate('/');
