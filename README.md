@@ -14,10 +14,11 @@ Desafio proposto na comunidade da Rafaela Ballerini, com objetivo de criar uma A
 + Ao finalizar este projeto, pratiquei diversos conceitos relacionados a React, principalmente o ecossistema que envolve a autenticação de usuários
 na aplicação.
 
+## Instalação
 + Confira as variáveis de ambiente necessárias contidas em no arquivo ".env.example"
 - `git clone` https://github.com/GuiLeoni14/Users_ReactJs .
 - `npm install` || `yarn install`
-- `node index.jsx` || `node start`(nodemon)
+- `node index.jsx`
 
 ## Tecnologias usadas:
 
