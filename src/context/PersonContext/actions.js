@@ -21,7 +21,6 @@ export const loadPerson = async (dispatch) => {
 export const addPerson = async (dispatch, values) => {
     dispatch({ type: types.LOADING_PERSON, payload: true });
     try {
-        console.log(values);
         const response = await axios.post(`${import.meta.env.VITE_REACT_APP_URL_API}/person`, values);
         const { data } = response;
         await loadPerson(dispatch);
@@ -59,8 +58,10 @@ export const deletePerson = async (dispatch, id) => {
 export const editPerson = async (dispatch, values) => {
     dispatch({ type: types.LOADING_PERSON, payload: true });
     try {
-        await axios.patch(`${import.meta.env.VITE_REACT_APP_URL_API}/person/${values.id}`, values);
+        const response = await axios.patch(`${import.meta.env.VITE_REACT_APP_URL_API}/person/${values.id}`, values);
+        const { data } = response;
         await loadPerson(dispatch);
+        dispatch({ type: types.EDIT_PERSON, payload: data.message });
     } catch (err) {
         const {
             response: {

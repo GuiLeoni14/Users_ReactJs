@@ -11,7 +11,7 @@ import Loading from '../../components/Loading';
 import CardUser from './CardUser';
 import MyDialog from './Dialog';
 import logo from '../../assets/img/logo.svg';
-import DialogOpen from './DialogOpen';
+import DialogOpen from './DialogMount';
 import { useState } from 'react';
 export default function Home() {
     const [openDialogUser, setOpenDialogUser] = useState(false);

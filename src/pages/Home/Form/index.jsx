@@ -8,7 +8,6 @@ import { FaGithub, FaLinkedin, FaUserCircle } from 'react-icons/fa';
 import { PersonContext } from '../../../context/PersonContext/context';
 import { MdDescription, MdInsertPhoto, MdOutlineHomeWork } from 'react-icons/md';
 export default function Form({ titleForm, valuesPerson, editButton, setFunction }) {
-    console.log(valuesPerson);
     useEffect(() => {
         if (setFunction) {
             return () => setFunction();
