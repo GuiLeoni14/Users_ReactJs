@@ -17,7 +17,7 @@ na aplicação.
 ## Instalação
 - `git clone` https://github.com/GuiLeoni14/Users_ReactJs .
 - `npm install` || `yarn install`
-- `npm run dev` || `npm start`
+- `npm run dev` (vite)
 
 ## Tecnologias usadas:
 
