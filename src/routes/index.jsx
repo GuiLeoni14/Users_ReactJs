@@ -9,6 +9,7 @@ import { Navigate } from 'react-router-dom';
 import Home from '../pages/Home';
 import Login from '../pages/Login';
 import PrivateRouter from './PrivateRouter';
+import NotFound from '../pages/NotFound';
 export default function MyRoutes() {
     return (
         <Routes>
@@ -20,7 +21,8 @@ export default function MyRoutes() {
                     </PrivateRouter>
                 }
             />
-            <Route path="/login" element={<Login />} />;
+            <Route path="/login" element={<Login />} />
+            <Route path="*" element={<NotFound />} />
         </Routes>
     );
 }
