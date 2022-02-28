@@ -32,7 +32,7 @@ export default function FormLogin({ titleForm }) {
     };
     return (
         <>
-            <form onSubmit={submit} className="form" data-aos="fade-up">
+            <form onSubmit={submit} className="form">
                 {titleForm && <h2>{titleForm}</h2>}
                 {loginAndRegisterErr && <h3 id="message_error">{loginAndRegisterErr}</h3>}
                 {messageSuccess && <h3 id="message_success">{messageSuccess}, realize login.</h3>}
