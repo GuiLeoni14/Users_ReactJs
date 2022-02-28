@@ -1,4 +1,5 @@
 
+@import '../../../layout/GlobalVariables/styles.scss';
 .overlay{
     position: fixed;
     z-index: 2022;
@@ -11,7 +12,7 @@
     align-items: center;
     justify-content: center;
     .content{
-        background-color: rgba(52, 51, 51, 1);
+        background-color: $green-600;
         width: 100%;
         max-width: 46rem;
         border-radius: 1rem;
