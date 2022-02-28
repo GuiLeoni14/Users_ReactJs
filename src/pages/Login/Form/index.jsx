@@ -28,7 +28,7 @@ export default function Form() {
                 <div className="second">
                     <h2>Olá, pessoal!</h2>
                     <p>
-                        Este é um projeto desenvolvido durante um desafio proposto pela comunidade Bellerini, nenhuma
+                        Este é um projeto desenvolvido durante um desafio proposto pela comunidade Ballerini, nenhuma
                         informação contida aqui deve ser levada como algo real, tanto seu email quando seu nome podem
                         ser “fakes”, apenas contendo o @ seu email será validado. Seja bem vindo!
                     </p>
@@ -39,7 +39,7 @@ export default function Form() {
                 <div className="second">
                     <h2>Olá, pessoal!</h2>
                     <p>
-                        Este é um projeto desenvolvido durante um desafio proposto pela comunidade Bellerini, nenhuma
+                        Este é um projeto desenvolvido durante um desafio proposto pela comunidade Ballerini, nenhuma
                         informação contida aqui deve ser levada como algo real, tanto seu email quando seu nome podem
                         ser “fakes”, apenas contendo o @ seu email será validado. Seja bem vindo!
                     </p>
