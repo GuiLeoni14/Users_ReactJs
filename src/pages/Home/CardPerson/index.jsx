@@ -21,7 +21,7 @@ export default function CardPerson({ name, avatar, description, github, linkedin
     const [openDialogEdit, setOpenDialogEdit] = useState(false);
     const [openDialogDelete, setOpenDialogDelete] = useState(false);
     return (
-        <div className="card_person" data-aos="flip-up">
+        <div className="card_person">
             <div className="icon_edit" onClick={() => setOpenDialogEdit(!openDialogEdit)}>
                 <FiEdit />
             </div>
